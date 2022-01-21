@@ -1,0 +1,30 @@
+.MovieRow {
+  background-color: rgba(43, 43, 43, 0.5);
+  border-radius: 6px;
+  width: 180px;
+  height: 330px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 5px;
+  text-decoration: none;
+}
+.MovieRow:hover {
+  background-color: rgb(125, 96, 255);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
+}
+img {
+  display: block;
+  width: 160px;
+  height: 230px;
+}
+.rating {
+  margin: 10px 0;
+  font-size: 12px;
+}
+.title {
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+}
