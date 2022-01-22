@@ -1,21 +1,10 @@
 import React from "react";
 import { css } from "@emotion/css";
-import styles from "../css/MovieRow.module.css";
+import Movie from "../components/Movie";
+// import { useState } from "react";
 
 // 영화 리스트가 뜨는 영역
-export default function MovieListArea({ movies }) {
-  const movieRow = movies.map((movie) => {
-    return (
-      <li key={movie.id}>
-        <div className={styles.MovieRow}>
-          <img src={movie.large_cover_image} alt={movie.title} />
-          <div className={styles.rating}>⭐️ {movie.rating}</div>
-          <div className={styles.title}>{movie.title}</div>
-        </div>
-      </li>
-    );
-  });
-
+export default function MovieListArea({ allMovies }) {
   return (
     <ul
       className={css`
@@ -26,7 +15,9 @@ export default function MovieListArea({ movies }) {
         flex-wrap: wrap;
       `}
     >
-      {movieRow}
+      {allMovies.map((movie) => (
+        <Movie movie={movie} key={movie.id} />
+      ))}
     </ul>
   );
 }
