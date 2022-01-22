@@ -1,7 +1,8 @@
 import React from "react";
-import { css } from "@emotion/css";
-import MovieListArea from "./MovieListArea";
 import SearchBarArea from "./SearchBarArea";
+import FilteredMovieArea from "./FilteredMovieArea";
+import AllMovieList from "./AllMovieList";
+import { css } from "@emotion/css";
 import { useEffect, useState } from "react";
 
 export default function FilterableMovieArea() {
@@ -9,6 +10,8 @@ export default function FilterableMovieArea() {
   const [loading, setLoading] = useState(true);
   // 받아온 전체 movie 데이터 상태 관리
   const [allMovies, setAllMovies] = useState([]);
+  // 필터링된 영화 상태관리
+  const [filteredMovies, setFilteredMovies] = useState(allMovies);
 
   const getMovies = async () => {
     const response = await fetch(
@@ -25,7 +28,7 @@ export default function FilterableMovieArea() {
   console.log("API로 얻은 영화 데이터", allMovies);
 
   const filterMovie = (value) => {
-    setAllMovies(
+    setFilteredMovies(
       allMovies.filter(
         (movie) => movie.title.toLowerCase().includes(value?.toLowerCase()) // Optional chaining
       )
@@ -52,7 +55,13 @@ export default function FilterableMovieArea() {
           </h1>
         ) : null}
       </div>
-      <MovieListArea allMovies={allMovies} />
+      <FilteredMovieArea
+        allMovies={allMovies}
+        filteredMovies={filteredMovies}
+        setFilteredMovies={setFilteredMovies}
+      />
+      <AllMovieList allMovies={allMovies} />
+      <AllMovieList allMovies={allMovies} />
     </div>
   );
 }

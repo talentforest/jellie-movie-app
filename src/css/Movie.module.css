@@ -6,11 +6,11 @@
   padding: 10px;
   box-sizing: border-box;
   margin: 5px;
-  text-decoration: none;
+  font-size: 12px;
+  overflow: scroll;
 }
 .MovieRow:hover {
-  background-color: rgb(125, 96, 255);
-  color: rgb(0, 0, 0);
+  background-color: #333;
   font-weight: bold;
   cursor: pointer;
 }
@@ -21,10 +21,12 @@ img {
 }
 .rating {
   margin: 10px 0;
-  font-size: 12px;
 }
 .title {
   font-size: 14px;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   line-height: 1.2;
+}
+.year {
+  margin-top: 5px;
 }
